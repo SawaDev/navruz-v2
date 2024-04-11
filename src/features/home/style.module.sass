@@ -1,0 +1,101 @@
+.gradient
+  background: linear-gradient(rgba(14, 29, 52, 0.6), rgba(14, 29, 52, 0.8))
+
+.heading_2
+  text-shadow: 3px 4px 2px rgba(171, 45, 135, 0.5)
+
+.heading_2 span
+  text-shadow: none
+
+.img_shadow
+  filter: drop-shadow(8px 15px 15px rgba(69, 67, 67, 0.3))
+
+.thumb
+  left: 50%
+  bottom: 0px
+  transform: translateX(-50%)
+
+.thumb li
+  display: inline-block
+  cursor: pointer
+  transition: 0.5s
+
+.thumb li:hover
+  transform: translateY(-15px)
+
+.circle
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  width: 100%
+  height: 90%
+  z-index: -1
+  clip-path: circle(500px at right 700px)
+
+.img2
+  background: url(/public/assets/bg_3.png) center center
+  background-size: contain
+  background-repeat: no-repeat
+
+.img1
+  background: url(/public/assets/bg_4.png) center center
+  background-size: contain
+  background-repeat: no-repeat
+
+.img3
+  background: url(/public/assets/bg_5.png) center center
+  background-size: contain
+  background-repeat: no-repeat
+
+.outline
+  outline-offset: -0.5rem
+  outline: .1rem solid rgba(0, 0, 0, .1)
+  box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1)
+  transition: .2s linear
+
+.outline:hover
+  outline: .2rem solid #a81b81
+  outline-offset: 0
+
+.mySwiper
+  display: grid
+
+.mySwiper .swiper-slide
+  height: 400px
+  display: flex
+  justify-content: center
+  align-items: center
+
+.mySwiperThumb .swiper-slide
+  cursor: pointer
+  border: 1px solid black
+
+.mySwiperThumb .swiper-slide-thumb-active
+  border-color: #a81b81
+
+.mySwiperThumbWrapper
+  width: 100%
+  height: 250px
+  overflow: hidden
+  position: relative
+
+.mySwiperThumbWrapper img
+  position: absolute
+  object-fit: contain
+  top: 0
+  left: 0
+  width: 100%
+
+.swiper-button-next
+  color: #000
+  z-index: 10000
+  cursor: pointer
+
+.swiper-button-prev
+  color: #000
+  z-index: 10000
+  cursor: pointer
+
+.aboutSwiper
+  padding-bottom: 50px

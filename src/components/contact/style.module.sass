@@ -1,0 +1,33 @@
+.contact
+  background: url(../../../public/assets/images/jelly.jpg) center center
+  background-size: cover
+  padding: 50px 0
+  overflow: hidden
+
+.contact .ccontainer
+  background: rgba(255, 255, 255, 0.3)
+  backdrop-filter: blur(6px)
+
+.contactButton input:hover
+  background-color: #a81b81
+
+.inputBox span
+  transition: .3s ease-in-out
+
+.inputBox input:valid~span,
+.inputBox input:focus~span
+  color: #a81b81
+  transform: translateX(-5px) translateY(-15px)
+  background: none
+  font-size: 16px
+  padding: 0 10px
+
+.inputBox input:valid,
+.inputBox input:focus
+  border-color: #a81b81
+
+.inputBox input[type="number"]
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button
+    -webkit-appearance: none
+    margin: 0
