@@ -1,5 +1,3 @@
-"use client"
-
 import { Contact } from "@/components/contact"
 import { SingleProduct } from "@/features/single-product"
 import { products } from '@/dummyData';
@@ -26,9 +24,9 @@ export async function generateMetadata(
   const previousImages = (await parent).openGraph?.images || []
 
   return {
-    title: product.content[0].type,
+    title: product.content[0].type + "jele",
     openGraph: {
-      title: product.content[0].type,
+      title: product.content[0].type + "jele",
       images: [...previousImages],
     },
   }
