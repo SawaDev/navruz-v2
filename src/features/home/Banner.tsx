@@ -81,10 +81,10 @@ export const Banner = ({ locale }: { locale: string }) => {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.25 }}
-        className={cn(`sm:w-[600px] pt-10 pr-10 flex justify-center bg-center relative`)}
+        className={cn(`w-[400px] sm:w-[600px] flex justify-center bg-center relative`)}
       >
         <Image src={items[current].backgroundImage} alt='background' className='-z-10' priority />
-        <div className='z-10 max-w-[340px] h-[540px] -rotate-6 absolute top-0 bottom-0'>
+        <div className='z-10 max-w-[220px] sm:max-w-[340px] h-[320px] sm:h-[540px] -rotate-6 absolute top-0 bottom-0'>
           <Image src={items[current].image} alt='cover' className={cn("object-cover h-auto w-auto")} priority />
         </div>
       </motion.div>

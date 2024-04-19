@@ -6,6 +6,7 @@ import "swiper/css/pagination";
 import type { Metadata } from "next"
 import { Mali } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { NextIntlClientProvider, useMessages } from "next-intl"
 
 import { Navbar } from "@/components/navbar"
@@ -20,13 +21,26 @@ const mali = Mali({
 
 export const metadata: Metadata = {
   title: "Frutti Jelelari",
-  description: "Frutti jele",
+  description: "Frutti jele - Har bir qadoqda dunyo lazzatlarini kashf eting",
   other: {
     "og:url": "frutti.uz",
     "og:image": "https://telegra.ph/file/c8e6fe08545b590909439.png",
-    "og:type": "website",
-
-  }
+    "og:type": "website"
+  },
+  openGraph: {
+    title: 'Har bir tomchida - Jele',
+    description: 'Har bir qadoqda dunyo lazzatlarini kashf eting',
+    url: 'test-2.frutti.uz',
+    siteName: 'Frutti',
+    images: [
+      {
+        url: 'https://telegra.ph/file/c8e6fe08545b590909439.png',
+        height: 480,
+        width: 360,
+      }
+    ],
+    type: 'website',
+  },
 }
 
 export default function LocaleLayout({
@@ -41,10 +55,8 @@ export default function LocaleLayout({
   return (
     <html lang={locale}>
       <head>
-        <meta
-          name="keywords"
-          content="jele, frutti, navruz, fruttiuz, navrozuz, ташкент, узбекистан"
-        />
+        <meta name="keywords" content="jele, frutti, navruz, fruttiuz, navrozuz, ташкент, узбекистан" />
+        <meta name="googlebot" content="index,follow" />
       </head>
       <body className={mali.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
@@ -53,6 +65,7 @@ export default function LocaleLayout({
           <Footer />
         </NextIntlClientProvider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )

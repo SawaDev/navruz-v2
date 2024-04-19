@@ -1,10 +1,8 @@
 import Heading from "@/components/heading";
 import { products } from "@/dummyData";
-import { useTranslations } from "next-intl";
 import { ProductCard } from "../../../components/product-card/product-card";
 
 const index = () => {
-  const t = useTranslations();
 
   return (
     <div className=''>
