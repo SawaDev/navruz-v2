@@ -22,11 +22,6 @@ const mali = Mali({
 export const metadata: Metadata = {
   title: "Frutti Jelelari",
   description: "Frutti jele - Har bir qadoqda dunyo lazzatlarini kashf eting",
-  other: {
-    "og:url": "frutti.uz",
-    "og:image": "https://telegra.ph/file/c8e6fe08545b590909439.png",
-    "og:type": "website"
-  },
   openGraph: {
     title: 'Har bir tomchida - Jele',
     description: 'Har bir qadoqda dunyo lazzatlarini kashf eting',
