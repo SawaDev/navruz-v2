@@ -13,7 +13,7 @@ import { fadeIn } from '@/utils/motion';
 import { products } from '@/dummyData';
 import { cn } from '@/lib/utils';
 
-export const SingleProduct = ({ id }: { id: number }) => {
+export const SingleProduct = ({ id, data }: { id: number, data: any }) => {
   const t = useTranslations();
 
   const [activeThumb, setActiveThumb] = useState<SwiperType>();

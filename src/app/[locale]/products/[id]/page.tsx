@@ -32,15 +32,36 @@ export async function generateMetadata(
   }
 }
 
-const index: React.FC<SingleProductTypes> = ({
+const index: React.FC<SingleProductTypes> = async ({
   params: {
     id
   }
 }) => {
+  const headers = new Headers();
+  headers.append('Authorization', `Bearer ${process.env.API_TOKEN}`);
+
+  const getData = async () => {
+    try {
+
+      const res = await fetch(
+        process.env.API_URL + '/posts/' + id,
+        {
+          method: 'GET',
+          headers: headers
+        }
+      )
+
+      return res.json()
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  const data = await getData()
 
   return (
     <>
-      <SingleProduct id={id} />
+      <SingleProduct id={id} data={data} />
       <div className='mt-10'>
         <Contact />
       </div>
