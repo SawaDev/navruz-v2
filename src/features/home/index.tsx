@@ -86,7 +86,7 @@ export const Home = () => {
               <Link href={`/${locale}/products/${product.id}`} className='max-w-[250px] h-[250px] overflow-hidden'>
                 <Image
                   alt='image'
-                  src={product.details.length
+                  src={product?.details?.length
                     ? product.details[0].image
                     : products[0].content[0].img
                   }
