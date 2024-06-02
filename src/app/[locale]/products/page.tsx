@@ -20,7 +20,7 @@ const index = async () => {
     <div className=''>
       <Heading text="Our" title="Products" />
       <section className='flex flex-wrap justify-around g-5 mb-10'>
-        {data.data.map((product) => (
+        {data.data.filter(d => d.published).map((product) => (
           <ProductCard
             key={product.id}
             index={product.id}

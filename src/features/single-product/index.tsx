@@ -45,7 +45,7 @@ export const SingleProduct = ({ data }: { data: SinglePostResponse["data"] }) =>
               thumbs={{ swiper: activeThumb && !activeThumb.destroyed ? activeThumb : null }}
               className={style["product-images-slider"]}
             >
-              {data.details.map((item) => (
+              {data.details.filter(d => d.published).map((item) => (
                 <SwiperSlide key={item.id}>
                   <div className={style["product-images-slider-wrapper"]}>
                     <Image src={item.image} width={600} height={600} alt="product images" />
@@ -60,7 +60,7 @@ export const SingleProduct = ({ data }: { data: SinglePostResponse["data"] }) =>
               modules={[Navigation, Thumbs]}
               className={cn('p-2', style["product-images-slider-thumbs"])}
             >
-              {data.details.map((item, index) => (
+              {data.details.filter(d => d.published).map((item, index) => (
                 <SwiperSlide key={item.id}>
                   <div
                     className={cn(
