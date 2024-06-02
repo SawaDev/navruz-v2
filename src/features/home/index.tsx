@@ -26,13 +26,31 @@ import { products } from "@/dummyData"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import React from "react";
+import { PostsResponse } from "@/types/PostsResponse";
+import { useLang } from "@/utils/useLang";
+import { useQuery } from "@tanstack/react-query";
+import { api } from "@/lib/api";
 
-export const Home: React.FC<{ locale: string }> = ({ locale }) => {
+export const Home = () => {
   const t = useTranslations();
+  const { locale } = useLang()
+
+  const fetchData = async () => {
+    const { data } = await api.get(process.env.NEXT_PUBLIC_API_URL + '/posts')
+
+    return data;
+  }
+
+  const { data, isLoading, error } = useQuery<PostsResponse, Error>({
+    queryKey: ['posts'],
+    queryFn: fetchData
+  });
+
+  if (error) return <div>Error loading data</div>;
 
   return (
     <div className='overflow-hidden'>
-      <Banner locale={locale}   />
+      <Banner locale={locale} />
       <Heading title="Products" text="Our" />
       <motion.div
         variants={fadeIn("", "", 0, 0.4)}
@@ -61,20 +79,28 @@ export const Home: React.FC<{ locale: string }> = ({ locale }) => {
           modules={[Navigation, Thumbs, Autoplay, Pagination, Keyboard]}
           className='p-10 pb-14'
         >
-          {products.map((product, index) => (
+          {(!isLoading && data) && data.data.map((product) => (
             <SwiperSlide
-              key={index}
+              key={product.id}
               className={cn('w-fit flex flex-col items-center p-10 rounded-xl', style.outline)}>
-              <Link href={`/${locale}/products/${index}`} className='max-w-[250px] h-[250px] overflow-hidden'>
-                <Image alt='image' src={product.content[0].img} className="h-full w-full object-contain" />
+              <Link href={`/${locale}/products/${product.id}`} className='max-w-[250px] h-[250px] overflow-hidden'>
+                <Image
+                  alt='image'
+                  src={product.details.length
+                    ? product.details[0].image
+                    : products[0].content[0].img
+                  }
+                  width={200} height={200}
+                  className="h-full w-full object-contain"
+                />
               </Link>
               <div className=''>
                 <h1 className='text-3xl text-white font-semibold mt-4 px-5 py-3 bg-[#e7316d] w-fit rounded-tl-[28px] rounded-br-[28px]'>{t("Fruit Jelly")}</h1>
-                <h1 className={`${product.content[0].type === "energy package" ? 'text-xl' : 'text-2xl'} sm:text-[22px] lg:text-3xl text-white font-semibold -mt-2 ml-2 mb-5 px-5 py-2 bg-[#804896] w-fit rounded-tl-[34px] rounded-br-[34px] capitalize`}>
-                  {t(product.content[0].type)}
+                <h1 className={`sm:text-[22px] lg:text-3xl text-white font-semibold -mt-2 ml-2 mb-5 px-5 py-2 bg-[#804896] w-fit rounded-tl-[34px] rounded-br-[34px] capitalize`}>
+                  {product.name[locale]}
                 </h1>
               </div>
-              <Link href={`/${locale}/products/${index}`}>
+              <Link href={`/${locale}/products/${product.id}`}>
                 <Button variant={"effected"}>
                   {t("See more")}
                 </Button>

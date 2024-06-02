@@ -1,6 +1,6 @@
 import { Home } from "@/features/home"
 
-export default function index({ params: { locale } }: { params: { locale: string } }) {
+export default function index() {
 
-  return (<Home locale={locale} />)
+  return (<Home />)
 }

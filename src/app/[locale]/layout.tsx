@@ -8,9 +8,11 @@ import { Mali } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { NextIntlClientProvider, useMessages } from "next-intl"
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
+import QueryProvider from "./QueryProvider";
 
 const mali = Mali({
   weight: ['200', '300', '400', '500', '600', '700'],
@@ -47,21 +49,35 @@ export default function LocaleLayout({
 }) {
   const messages = useMessages()
 
+  const twentyFourHoursInMs = 1000 * 60 * 60 * 24;
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false,
+        refetchOnReconnect: false,
+        retry: false,
+        staleTime: twentyFourHoursInMs,
+      },
+    },
+  });
+
   return (
-    <html lang={locale}>
+    <html lang={locale} >
       <head>
         <meta name="keywords" content="jele, frutti, navruz, fruttiuz, navrozuz, ташкент, узбекистан" />
         <meta name="googlebot" content="index,follow" />
       </head>
       <body className={mali.className}>
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <Navbar />
-          {children}
-          <Footer />
-        </NextIntlClientProvider>
+        <QueryProvider>
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            <Navbar />
+            {children}
+            <Footer />
+          </NextIntlClientProvider>
+        </QueryProvider>
         <Analytics />
         <SpeedInsights />
       </body>
-    </html>
+    </html >
   )
 }

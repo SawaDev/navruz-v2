@@ -1,7 +1,8 @@
 import { Contact } from "@/components/contact"
 import { SingleProduct } from "@/features/single-product"
-import { products } from '@/dummyData';
 import { Metadata, ResolvingMetadata } from "next";
+import { api } from "@/lib/api";
+import { SinglePostResponse } from "@/types/PostsResponse";
 
 interface SingleProductTypes {
   params: {
@@ -10,24 +11,30 @@ interface SingleProductTypes {
 }
 
 type Props = {
-  params: { id: number }
+  params: { id: number, locale: "uz" | "ru" | "en" }
+}
+
+async function getData(id: number) {
+  const res = await api.get<SinglePostResponse>(`${process.env.NEXT_PUBLIC_API_URL}/posts/${id}`)
+
+  return res.data
 }
 
 export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const id = params.id
-
-  const product = products[id]
+  const data = await getData(params.id)
 
   const previousImages = (await parent).openGraph?.images || []
 
   return {
-    title: product.content[0].type + "jele",
+    title: `${data.data.name[params.locale]} Jele`,
+    description: data.data.description[params.locale],
     openGraph: {
-      title: product.content[0].type + "jele",
-      images: [...previousImages],
+      title: `${data.data.name} Jele`,
+      description: data.data.description[params.locale],
+      images: data.data.details.length ? [data.data.details[0].image] : [...previousImages],
     },
   }
 }
@@ -37,31 +44,11 @@ const index: React.FC<SingleProductTypes> = async ({
     id
   }
 }) => {
-  const headers = new Headers();
-  headers.append('Authorization', `Bearer ${process.env.API_TOKEN}`);
-
-  const getData = async () => {
-    try {
-
-      const res = await fetch(
-        process.env.API_URL + '/posts/' + id,
-        {
-          method: 'GET',
-          headers: headers
-        }
-      )
-
-      return res.json()
-    } catch (err) {
-      console.log(err)
-    }
-  }
-
-  const data = await getData()
+  const data = await getData(id)
 
   return (
     <>
-      <SingleProduct id={id} data={data} />
+      <SingleProduct data={data.data} />
       <div className='mt-10'>
         <Contact />
       </div>
