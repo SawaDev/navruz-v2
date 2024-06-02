@@ -7,7 +7,6 @@ import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import Image from 'next/image'
 
-import { fadeIn } from '@/utils/motion'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import style from "./style.module.sass"
@@ -36,12 +35,7 @@ export const Banner = ({ locale }: { locale: string }) => {
 
   return (
     <section className='w-full relative backdrop-blur-[2px] pt-10 sm:pt-0 pb-[140px] flex flex-col lg:flex-row justify-between items-center'>
-      <div
-        // variants={fadeIn("right", "", 0, 0.1)}
-        // initial="hidden"
-        // whileInView="show"
-        // viewport={{ once: true, amount: 0.25 }}
-        className='flex flex-col max-w-[612px] sm:pt-[100px] sm:pb-[60px] sm:px-[20px] sm:pl-10'>
+      <div className='flex flex-col max-w-[612px] sm:pt-[100px] sm:pb-[60px] sm:px-[20px] sm:pl-10'>
         <h1 className='text-5xl sm:text-5xl font-semibold mb-5 text-black'>{t("Taste our")} <br /> <span className='text-6xl text-[#a81b81]'>
           <Typewriter
             words={[t("Fun"), t("Safe"), t("Creative")]}

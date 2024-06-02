@@ -43,7 +43,7 @@ export const Home = () => {
 
   const { data, isLoading, error } = useQuery<PostsResponse, Error>({
     queryKey: ['posts'],
-    queryFn: fetchData
+    queryFn: async () => await fetchData()
   });
 
   if (error) return <div>Error loading data</div>;
