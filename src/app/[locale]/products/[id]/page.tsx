@@ -32,7 +32,7 @@ export async function generateMetadata(
     title: `${data.data.name[params.locale]} Jele`,
     description: data.data.description[params.locale],
     openGraph: {
-      title: `${data.data.name} Jele`,
+      title: `${data.data.name[params.locale]} Jele`,
       description: data.data.description[params.locale],
       images: data.data.details.length ? [data.data.details[0].image] : [...previousImages],
     },
