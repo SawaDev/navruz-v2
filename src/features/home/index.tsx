@@ -79,7 +79,7 @@ export const Home = () => {
           modules={[Navigation, Thumbs, Autoplay, Pagination, Keyboard]}
           className='p-10 pb-14'
         >
-          {(!isLoading && data) && data.data.map((product) => (
+          {(!isLoading && data) && data.data.filter(d => d.published).map((product) => (
             <SwiperSlide
               key={product.id}
               className={cn('w-fit flex flex-col items-center p-10 rounded-xl', style.outline)}>
