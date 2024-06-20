@@ -38,7 +38,7 @@ export const Footer = () => {
           <Link href="/products">
             <p className='italic text-gray-300 cursor-pointer ease-in duration-100 hover:pl-1 hover:text-white'>{t("Products")}</p>
           </Link>
-          <Link href="/contact">
+          <Link href="/contacts">
             <p className='italic text-gray-300 cursor-pointer ease-in duration-100 hover:pl-1 hover:text-white'>{t("Contact Us")}</p>
           </Link>
         </div>
