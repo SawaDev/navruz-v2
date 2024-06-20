@@ -1,8 +1,8 @@
 import { useTranslations } from "next-intl"
 import Image from "next/image"
-import Link from "next/link"
 import { FaFacebookF, FaInstagram, FaTelegramPlane, FaWhatsapp } from "react-icons/fa"
 import { logo_white } from "../../../public/assets/images"
+import { Link } from "@/navigation"
 
 export const Footer = () => {
   const t = useTranslations()

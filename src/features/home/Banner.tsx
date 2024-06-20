@@ -53,64 +53,64 @@ export const Banner = ({ locale }: { locale: string }) => {
           </Button>
         </Link>
       </div>
-      <motion.div
+      <div
         key={current}
-        variants={
-          {
-            hidden: {
-              scale: 0.4,
-              opacity: 0,
-            },
-            show: {
-              scale: 1,
-              opacity: 1,
-              transition: {
-                delay: 0.1,
-                duration: 0.3,
-                ease: "linear",
-              },
-            }
-          }
-        }
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.25 }}
+        // variants={
+        //   {
+        //     hidden: {
+        //       scale: 0.4,
+        //       opacity: 0,
+        //     },
+        //     show: {
+        //       scale: 1,
+        //       opacity: 1,
+        //       transition: {
+        //         delay: 0.1,
+        //         duration: 0.3,
+        //         ease: "linear",
+        //       },
+        //     }
+        //   }
+        // }
+        // initial="hidden"
+        // whileInView="show"
+        // viewport={{ once: true, amount: 0.25 }}
         className={cn(`w-[400px] sm:w-[600px] flex justify-center bg-center relative`)}
       >
         <Image src={items[current].backgroundImage} alt='background' className='-z-10' priority />
         <div className='z-10 max-w-[220px] sm:max-w-[340px] h-[320px] sm:h-[540px] -rotate-6 absolute top-0 bottom-0'>
           <Image src={items[current].image} alt='cover' className={cn("object-cover h-auto w-auto")} priority />
         </div>
-      </motion.div>
-      <motion.ul
-        variants={
-          {
-            hidden: {
-              y: -60,
-              opacity: 0,
-              x: -140,
-            },
-            show: {
-              y: 0,
-              opacity: 1,
-              transition: {
-                delay: 0.5,
-                duration: 0.7,
-                ease: "linear",
-              },
-            }
-          }
-        }
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.25 }}
+      </div>
+      <ul
+        // variants={
+        //   {
+        //     hidden: {
+        //       y: -60,
+        //       opacity: 0,
+        //       x: -140,
+        //     },
+        //     show: {
+        //       y: 0,
+        //       opacity: 1,
+        //       transition: {
+        //         delay: 0.5,
+        //         duration: 0.7,
+        //         ease: "linear",
+        //       },
+        //     }
+        //   }
+        // }
+        // initial="hidden"
+        // whileInView="show"
+        // viewport={{ once: true, amount: 0.25 }}
         className={cn('absolute flex gap-6', style.thumb)}>
         {items.map((item, index) => (
           <li key={index} onClick={() => handleClick(index)}>
             <Image src={item.image} alt={`image ${index}`} className="max-w-[80px]" />
           </li>
         ))}
-      </motion.ul>
+      </ul>
     </section>
   )
 }
