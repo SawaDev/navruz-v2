@@ -52,11 +52,11 @@ export const Home = () => {
     <div className='overflow-hidden'>
       <Banner locale={locale} />
       <Heading title="Products" text="Our" />
-      <motion.div
-        variants={fadeIn("", "", 0, 0.4)}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.25 }}
+      <div
+        // variants={fadeIn("", "", 0, 0.4)}
+        // initial="hidden"
+        // whileInView="show"
+        // viewport={{ once: true, amount: 0.25 }}
         className='my-10 max-w-7xl mx-auto'>
         <Swiper
           navigation={true}
@@ -108,14 +108,14 @@ export const Home = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-      </motion.div>
+      </div>
       <Heading title="Company" text="About Our" />
       <section className='flex justify-around flex-col gap-10 lg:flex-row mb-10'>
-        <motion.div
-          variants={fadeIn("right", "", 0, 0.3)}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}
+        <div
+          // variants={fadeIn("right", "", 0, 0.3)}
+          // initial="hidden"
+          // whileInView="show"
+          // viewport={{ once: true, amount: 0.25 }}
           className='flex flex-col px-4 sm:px-0 items-start justify-center basis-1/2'>
           <h1 className='text-2xl text-center lg:text-left sm:text-4xl font-semibold text-[#a81b81]'>{t("crafting")}</h1>
           <p className='text-lg pt-4 pb-7'>{t("crafting text")}</p>
@@ -124,24 +124,24 @@ export const Home = () => {
               {t("See All")}
             </Button>
           </Link>
-        </motion.div>
-        <motion.div
-          variants={fadeIn("left", "", 0.2, 0.3)}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}
+        </div>
+        <div
+          // variants={fadeIn("left", "", 0.2, 0.3)}
+          // initial="hidden"
+          // whileInView="show"
+          // viewport={{ once: true, amount: 0.25 }}
           className='flex justify-center px-4 sm:px-0 lg:justify-end'>
           <div className='max-h-[470px] max-w-[409px]'>
             <Image className='w-full h-full' src={aboutImg} alt='about img 1' />
           </div>
-        </motion.div>
+        </div>
       </section>
       <section className='flex justify-around flex-col gap-10 lg:flex-row-reverse'>
-        <motion.div
-          variants={fadeIn("left", "", 0.4, 0.3)}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}
+        <div
+          // variants={fadeIn("left", "", 0.4, 0.3)}
+          // initial="hidden"
+          // whileInView="show"
+          // viewport={{ once: true, amount: 0.25 }}
           className='flex flex-col items-start justify-center basis-1/2 px-4 sm:px-0'>
           <h1 className='text-3xl text-center lg:text-left sm:text-4xl font-semibold text-[#a81b81]'>{t("our team")}</h1>
           <p className='text-lg pt-4 pb-7'>{t("our team text")}</p>
@@ -165,55 +165,60 @@ export const Home = () => {
               </DialogHeader>
             </DialogContent>
           </Dialog>
-        </motion.div>
-        <motion.div
-          variants={fadeIn("right", "", 0.4, 0.3)}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}
+        </div>
+        <div
+          // variants={fadeIn("right", "", 0.4, 0.3)}
+          // initial="hidden"
+          // whileInView="show"
+          // viewport={{ once: true, amount: 0.25 }}
           className='flex justify-center lg:justify-start px-4 sm:px-0'>
           <div className='max-h-[470px] max-w-[409px]'>
             <Image className='w-full h-full' src={aboutImg2} alt='about img 2' />
           </div>
-        </motion.div>
+        </div>
       </section>
       <Heading text="Why" title="Frutti" />
       <div className='mb-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-5'>
-        <motion.div
-          variants={fadeIn("up", "", 0, 0.3)}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}>
+        <div
+        // variants={fadeIn("up", "", 0, 0.3)}
+        // initial="hidden"
+        // whileInView="show"
+        // viewport={{ once: true, amount: 0.25 }}
+        >
           <Features imgUrl={features_1} icon={<GiPartyPopper />} title="Fun" text="f 1" />
-        </motion.div>
-        <motion.div
-          variants={fadeIn("up", "", 0.2, 0.3)}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}>
+        </div>
+        <div
+        // variants={fadeIn("up", "", 0.2, 0.3)}
+        // initial="hidden"
+        // whileInView="show"
+        // viewport={{ once: true, amount: 0.25 }}
+        >
           <Features imgUrl={features_2} icon={<GiCupcake />} title="Tasty" text="f 2" />
-        </motion.div>
-        <motion.div
-          variants={fadeIn("up", "", 0.4, 0.3)}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}>
+        </div>
+        <div
+        // variants={fadeIn("up", "", 0.4, 0.3)}
+        // initial="hidden"
+        // whileInView="show"
+        // viewport={{ once: true, amount: 0.25 }}
+        >
           <Features imgUrl={features_3} icon={<TbShieldCheck />} title="Safe" text="f 3" />
-        </motion.div>
-        <motion.div
-          variants={fadeIn("up", "", 0, 0.3)}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}>
+        </div>
+        <div
+        // variants={fadeIn("up", "", 0, 0.3)}
+        // initial="hidden"
+        // whileInView="show"
+        // viewport={{ once: true, amount: 0.25 }}
+        >
           <Features imgUrl={features_4} icon={<BiPalette />} title="Creative" text="f 4" />
-        </motion.div>
-        <motion.div
-          variants={fadeIn("up", "", 0.2, 0.3)}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}>
+        </div>
+        <div
+        // variants={fadeIn("up", "", 0.2, 0.3)}
+        // initial="hidden"
+        // whileInView="show"
+        // viewport={{ once: true, amount: 0.25 }}
+        >
           <Features imgUrl={features_5} icon={<BsStarFill />} title="Quality" text="f 5" />
-        </motion.div>
+        </div>
       </div>
       <Contact />
     </div >

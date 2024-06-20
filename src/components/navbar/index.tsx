@@ -8,6 +8,7 @@ import { GiHamburgerMenu } from "react-icons/gi"
 import { MdOutlineFileDownload } from 'react-icons/md'
 import { BsGlobe2 } from "react-icons/bs"
 import { AiFillCaretDown } from "react-icons/ai"
+import { FaExternalLinkAlt } from "react-icons/fa";
 import { GB, RU, UZ } from 'country-flag-icons/react/3x2'
 import { X } from "lucide-react"
 
@@ -43,7 +44,7 @@ export const Navbar = () => {
               </SheetTrigger>
               <SheetContent>
                 <SheetClose className="absolute top-4 right-4 outline-none">
-                  <X className="h-8 w-8 text-[#a81b81]"/>
+                  <X className="h-8 w-8 text-[#a81b81]" />
                 </SheetClose>
                 <ul className='flex flex-col justify-center gap-5 h-full text-[#a81b81]'>
                   <li>
@@ -97,26 +98,14 @@ export const Navbar = () => {
                   <p>{t("Catalogue")}</p>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                  <DropdownMenuLabel>{t("Catalogue text")}</DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem>
+                  <DropdownMenuItem className="flex items-center gap-2">
+                    <FaExternalLinkAlt />
                     <Link
                       className='flex items-center gap-1'
-                      href="https://drive.google.com/file/d/11GZjEENskrRGpY7Uu5OyiE8dIod0ww3e/view?usp=share_link"
+                      href="https://drive.google.com/file/d/101fGwWvMnMG87_S5exDKxS0WCj6nNNoc/view?usp=sharing"
                       target="_blank"
                     >
-                      <RU title="Russia" className='block z-40 h-4' />
-                      <span>RU</span>
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <Link
-                      className='flex items-center gap-1'
-                      href="https://drive.google.com/file/d/1sTUN4y0Igr19Zwv8Q6naKOhr__W-DSPu/view?usp=share_link"
-                      target="_blank"
-                    >
-                      <GB title="Great Britain" className='block z-40 h-4' />
-                      <span>EN</span>
+                      {t("Catalogue text")}
                     </Link>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
