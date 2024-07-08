@@ -1,7 +1,6 @@
 "use client"
 
 import React from "react"
-import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion"
@@ -10,6 +9,7 @@ import style from "./style.module.sass"
 import { fadeIn } from "@/utils/motion";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { Link } from "@/navigation";
 
 interface ProductCardType {
   index: number;
@@ -28,7 +28,7 @@ export const ProductCard: React.FC<ProductCardType> = ({ index, image, type }) =
       viewport={{ once: true, amount: 0.25 }}
       key={index}
       className={cn('flex flex-col items-center mt-7 py-10 px-10 rounded-xl', style.outline)}>
-      <Link href={`/products/${index}`} className='max-w-[250px] max-h-[250px] overflow-hidden'>
+      <Link href={`products/${index}`} className='max-w-[250px] max-h-[250px] overflow-hidden'>
         <Image
           alt="image"
           src={image}

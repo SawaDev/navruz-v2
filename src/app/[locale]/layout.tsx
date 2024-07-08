@@ -64,7 +64,7 @@ export default function LocaleLayout({
   return (
     <html lang={locale} >
       <head>
-        <meta name="keywords" content="jele, frutti, navruz, fruttiuz, navrozuz, ташкент, узбекистан" />
+        <meta name="keywords" content="jele, frutti, navruz, fruttiuz, navrozuz, ташкент, узбекистан, Фрутти желе мармелад сладости конфеты Навруз Ташкент Узбекистан Jelly sweets Tashkent Uzbekistan jele marmelad shirinlik konfet jelly navruz" />
         <meta name="googlebot" content="index,follow" />
       </head>
       <body className={mali.className}>
