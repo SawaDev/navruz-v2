@@ -69,7 +69,7 @@ export const Navbar = () => {
                     </LinkLocale>
                   </li>
                   <li>
-                    <LinkLocale href={`/contact`} className='item text-3xl font-semibold'>
+                    <LinkLocale href={`/contacts`} className='item text-3xl font-semibold'>
                       <SheetClose>
                         {t("Contact Us")}
                       </SheetClose>
