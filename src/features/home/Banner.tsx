@@ -11,7 +11,7 @@ import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import style from "./style.module.sass"
 
-import { banner_1, banner_2, banner_4 } from '../../../public/assets/images'
+import { new_stick_1, banner_2, banner_4 } from '../../../public/assets/images'
 import backgroundFirst from "../../../public/assets/images/bg_4.png"
 import backgroundSecond from "../../../public/assets/images/bg_3.png"
 import backgroundThird from "../../../public/assets/images/bg_5.png"
@@ -22,7 +22,7 @@ export const Banner = ({ locale }: { locale: string }) => {
   const t = useTranslations()
 
   const items = [
-    { image: banner_1, class: "img1", backgroundImage: backgroundFirst },
+    { image: new_stick_1, class: "img1", backgroundImage: backgroundFirst },
     { image: banner_2, class: "img2", backgroundImage: backgroundSecond },
     { image: banner_4, class: "img3", backgroundImage: backgroundThird },
   ]
@@ -79,7 +79,7 @@ export const Banner = ({ locale }: { locale: string }) => {
       >
         <Image src={items[current].backgroundImage} alt='background' className='-z-10' priority />
         <div className='z-10 max-w-[220px] sm:max-w-[340px] h-[320px] sm:h-[540px] -rotate-6 absolute top-0 bottom-0'>
-          <Image src={items[current].image} alt='cover' className={cn("object-cover h-auto w-auto")} priority />
+          <Image src={items[current].image} alt='cover' className={cn("object-cover max-h-[500px] pt-16 h-auto w-auto")} priority />
         </div>
       </div>
       <ul
@@ -107,7 +107,7 @@ export const Banner = ({ locale }: { locale: string }) => {
         className={cn('absolute flex gap-6', style.thumb)}>
         {items.map((item, index) => (
           <li key={index} onClick={() => handleClick(index)}>
-            <Image src={item.image} alt={`image ${index}`} className="max-w-[80px]" />
+            <Image src={item.image} alt={`image ${index}`} className="max-w-[80px] max-h-[116px] object-contain" />
           </li>
         ))}
       </ul>

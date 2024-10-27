@@ -20,6 +20,7 @@ import about_2 from "./about_2.jpg"
 import about_3 from "./about_3.png"
 import about_4 from "./about_4.png"
 
+import new_stick_1 from "./products/stick_1_new.png"
 import stick_1 from "./products/stick_1.png"
 import stick_2 from "./products/stick_2.png"
 import stick_3 from "./products/stick_3.png"
@@ -91,6 +92,7 @@ export {
   banner_2,
   banner_3,
   banner_4,
+  new_stick_1,
   stick_1,
   stick_2,
   stick_3,

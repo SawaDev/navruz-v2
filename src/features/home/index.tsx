@@ -1,6 +1,5 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Thumbs, Pagination, Keyboard } from "swiper";
 import { useTranslations } from 'next-intl'
@@ -10,7 +9,6 @@ import Link from 'next/link'
 import style from "./style.module.sass"
 import Heading from '@/components/heading'
 import Features from '@/components/features'
-import { fadeIn } from "@/utils/motion";
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils';
 import { Banner } from './Banner';
@@ -20,7 +18,7 @@ import aboutImg from "../../../public/assets/images/about.png"
 import aboutImg2 from "../../../public/assets/images/about_2.jpg"
 import {
   GiCupcake, GiPartyPopper, TbShieldCheck, BsStarFill,
-  BiPalette, features_1, features_2, features_3, features_4, features_5, halal
+  BiPalette, features_1, features_2, features_3, features_4, features_5
 } from '../../../public/assets/images'
 import { products } from "@/dummyData"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
